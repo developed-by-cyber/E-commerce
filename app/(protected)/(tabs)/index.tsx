@@ -1,17 +1,21 @@
 import { Button, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "expo-router";
+import Wrapper from "@/components/ui/Wrapper";
+import SearchInput from "@/components/SearchInput";
 
 const Home = () => {
-  const router = useRouter();
-  const onPress = () => {
-    router.push("/login");
-  };
+  const [value, setValue] = useState('')
+   const onChange = (value: string) =>{
+    setValue(value)
+   }
+   const onClear = () =>{
+    setValue('')
+   }
   return (
-    <View>
-      <Button title="login" onPress={onPress} />
-      <Text>Home</Text>
-    </View>
+    <Wrapper>
+      <SearchInput value={value} onChange={onChange}  onClear={onClear}/>
+    </Wrapper>
   );
 };
 

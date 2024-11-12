@@ -13,8 +13,8 @@ type Props = {
   buttonTitle: string;
   onPress: () => void;
   disabled?: boolean;
-  style: StyleProp<ViewStyle>;
-  color: string;
+  style?: StyleProp<ViewStyle>;
+  color?: string;
 };
 
 const CustomButton = ({
