@@ -3,6 +3,7 @@ import React from "react";
 import { Stack, useRouter } from "expo-router";
 import { AntDesign } from "@expo/vector-icons";
 import { colors } from "@/constant";
+import CartIcon from "@/components/CartIcon";
 
 const OtherScreenLayout = () => {
   const router = useRouter();
@@ -16,7 +17,6 @@ const OtherScreenLayout = () => {
         screenOptions={{
           headerStyle: { backgroundColor: colors.white },
           headerTintColor: colors.dark,
-          headerTitle: "Details",
           headerTitleAlign: "center",
           headerLeft: () => (
             <Pressable
@@ -26,8 +26,14 @@ const OtherScreenLayout = () => {
               <AntDesign name="arrowleft" size={24} color="black" />
             </Pressable>
           ),
+          headerRight: () => <CartIcon />,
         }}
-      />
+      >
+        <Stack.Screen
+          name="product/[id]"
+          options={{ title: "Product Details" }}
+        />
+      </Stack>
     </>
   );
 };
