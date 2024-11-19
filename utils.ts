@@ -8,3 +8,8 @@ export const validatePassword = (password: string) => {
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   return passwordRegex.test(password);
 };
+
+export const trimText = (text: string, length = 16) => {
+  if (text.length > length) return text.substring(0, length) + "...";
+  return text;
+};

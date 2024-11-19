@@ -9,7 +9,7 @@ export default function TabsLayout() {
   return (
     //@ts-ignore
     <>
-    <StatusBar barStyle="light-content" />
+      <StatusBar barStyle="light-content" />
       <Tabs
         screenOptions={{
           tabBarInactiveTintColor: colors.dark,

@@ -11,7 +11,7 @@ import { colors } from "@/constant";
 
 type Props = {
   buttonTitle: string;
-  onPress: () => void;
+  onPress?: () => void;
   disabled?: boolean;
   style?: StyleProp<ViewStyle>;
   color?: string;

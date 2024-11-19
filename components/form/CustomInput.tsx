@@ -22,7 +22,7 @@ type Props = {
   error?: string;
   password?: boolean;
   toggleSecure?: () => void;
-  style?: StyleProp<ViewStyle>
+  style?: StyleProp<ViewStyle>;
 };
 const CustomInput = ({
   placeholder,
@@ -34,13 +34,14 @@ const CustomInput = ({
   error,
   password,
   toggleSecure,
-  style
+  style,
 }: Props) => {
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       {label && <Text style={styles.label}>{label}</Text>}
       <View style={[styles.container, style]}>
         <TextInput
+          placeholderTextColor="#ccc"
           style={styles.input}
           value={value}
           keyboardType={keyboardType}
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
     padding: 10,
     height: 55,
     flexDirection: "row",
-    alignItems: 'center'
+    alignItems: "center",
   },
   input: {
     borderWidth: 0,
