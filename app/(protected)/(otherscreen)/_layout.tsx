@@ -31,7 +31,15 @@ const OtherScreenLayout = () => {
       >
         <Stack.Screen
           name="product/[id]"
-          options={{ title: "Product Details" }}
+          options={{ title: "Product Details", headerTitleAlign: "center" }}
+        />
+        <Stack.Screen
+          name="cart"
+          options={{
+            title: "Cart",
+            headerTitleAlign: "center",
+            headerRight: () => "",
+          }}
         />
       </Stack>
     </>

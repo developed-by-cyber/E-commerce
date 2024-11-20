@@ -37,7 +37,7 @@ const CustomInput = ({
   style,
 }: Props) => {
   return (
-    <View style={{ flex: 1 }}>
+    <View>
       {label && <Text style={styles.label}>{label}</Text>}
       <View style={[styles.container, style]}>
         <TextInput

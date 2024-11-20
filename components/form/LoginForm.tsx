@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import CustomInput from "./CustomInput";
 import CustomButton from "../ui/CustomButton";
 import { validateEmail, validatePassword } from "@/utils";
-import { Href, Link } from "expo-router";
+import { Href, Link, useRouter } from "expo-router";
 
 const LoginForm = ({ Register }: { Register?: boolean }) => {
+  const router = useRouter();
   const [value, setValue] = useState({
     name: "",
     email: "",
@@ -45,6 +46,7 @@ const LoginForm = ({ Register }: { Register?: boolean }) => {
       email: "",
       password: "",
     });
+    router.replace("/");
   };
 
   console.log({ name, email, password });
@@ -55,6 +57,7 @@ const LoginForm = ({ Register }: { Register?: boolean }) => {
     : "Don't have an account?";
   const actionText = Register ? "Sign In" : "Sign Up";
   const href: Href<string | object> = Register ? "/login" : "/register";
+
   return (
     <View style={styles.container}>
       {Register && (

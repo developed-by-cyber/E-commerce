@@ -8,6 +8,7 @@ import { useCartStore } from "@/libs/zustand/cart";
 import { useRouter } from "expo-router";
 import { toast } from "sonner-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { UpdateButtons } from "./ui/UpdateButton";
 type Props = {
   item: ProductResponse;
   stock: number;
@@ -34,6 +35,8 @@ const Footer = ({ item, stock }: Props) => {
       price: item.price,
       qty: 1,
       img: item.thumbnail,
+      stock: item.stock,
+      brand: item.brand,
     });
     toast.success("Cart has been updated");
   };
@@ -58,15 +61,20 @@ const Footer = ({ item, stock }: Props) => {
           />
         </Pressable>
         {renderControlButton && (
-          <View style={styles.controls}>
-            <Pressable style={styles.iconStyle} onPress={onRemoveFromCart}>
-              <AntDesign name="minus" color={colors.white} size={30} />
-            </Pressable>
-            <Text>{qtyInCart}</Text>
-            <Pressable style={styles.iconStyle}>
-              <AntDesign name="plus" color={colors.white} size={30} />
-            </Pressable>
-          </View>
+          <UpdateButtons
+            qtyInCart={qtyInCart}
+            onIncrease={onAddItem}
+            onDecrease={onRemoveFromCart}
+          />
+          // <View style={styles.controls}>
+          //   <Pressable style={styles.iconStyle} onPress={onRemoveFromCart}>
+          //     <AntDesign name="minus" color={colors.white} size={30} />
+          //   </Pressable>
+          //   <Text>{qtyInCart}</Text>
+          //   <Pressable onPress={onAddItem} style={styles.iconStyle}>
+          //     <AntDesign name="plus" color={colors.white} size={30} />
+          //   </Pressable>
+          // </View>
         )}
         {!renderControlButton && (
           <Pressable

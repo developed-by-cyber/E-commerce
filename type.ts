@@ -52,4 +52,6 @@ export type CartItem = {
   qty: number;
   price: number;
   img: string;
+  stock: number;
+  brand: string;
 };

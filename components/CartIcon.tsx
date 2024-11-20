@@ -3,11 +3,19 @@ import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { colors } from "@/constant";
 import { useCartStore } from "@/libs/zustand/cart";
+import { usePathname, useRouter } from "expo-router";
 
 type Props = {};
 const onPress = () => {};
 const CartIcon = (props: Props) => {
   const carItemLength = useCartStore((state) => state.items.length);
+  const router = useRouter();
+  const pathname = usePathname();
+  const isCartScreen = pathname === "/cart";
+  const onPress = () => {
+    if (isCartScreen) return;
+    router.push("/cart");
+  };
   return (
     <Pressable
       onPress={onPress}
